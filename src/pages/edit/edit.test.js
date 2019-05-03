@@ -14,32 +14,10 @@ const my_sample_last_name = "my sample last name";
 const my_sample_avatar = "http://example.com/image.png";
 const match = {params: {id: my_sample_id}};
 describe('<Edit />', () => {
-    // beforeEach(() => {
-    //     const list = [
-    //         {
-    //             id : my_sample_id,
-    //             first_name : my_sample_first_name,
-    //             last_name : my_sample_last_name,
-    //             avatar : my_sample_avatar,
-    //         }
-    //     ]
-    //     store.dispatch(userListActions.set(list))
-    // });
     test('renders connected', () => {
         const wrapper = shallow(<ConnectedEdit store={store} match={match} />);
         expect(wrapper.exists()).toBe(true)
     });
-    // test('should change button text and disability by changing loading props', () => {
-    //     const wrapper = mount(<ConnectedEdit  store={store} match={match} />);
-    //     store.dispatch(actions.loading(true))
-    //     wrapper.setProps({loading:true})
-    //     expect(wrapper.find('.form-btn').text()).toBe(' loading ...');
-    //     expect(wrapper.find('.form-btn').props().disabled).toBe(true);
-    //     store.dispatch(actions.loading(false))
-    //     wrapper.setProps({loading : false});
-    //     expect(wrapper.find('.form-btn').text()).toBe('Save');
-    //     expect(wrapper.find('.form-btn').props().disabled).toBe(false);
-    // });
     test('should change button text and disability by changing loading props', () => {
         const wrapper = shallow(<Edit />,{disableLifecycleMethods: true});
         wrapper.setProps({loading:true})
