@@ -1,0 +1,25 @@
+Feature: Get dynamically mocked user from Qontract
+
+  Scenario: Get valid user details
+    Given json UserData
+      | id         | (number) |
+      | email      | (string) |
+      | first_name | (string) |
+      | last_name  | (string) |
+      | avatar     | (string) |
+    And json ADData
+      | company | (string) |
+      | url     | (string) |
+      | text    | (string) |
+    And type ResponseBody
+      | data | (UserData) |
+      | ad   | (ADData)   |
+    When GET /api/users/(id:number)
+    Then status 200
+    And response-body (ResponseBody)
+
+  Scenario: Get valid user details
+    Given type ResponseBody
+    When GET /api/users/(id:number)
+    Then status 404
+    And response-body (ResponseBody)

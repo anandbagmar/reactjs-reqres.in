@@ -4,6 +4,15 @@ import { store } from "../../store";
 import { push } from "react-router-redux";
 
 axios.defaults.baseURL = config.API_BASE_URL;
+export const makeGetReqQontract = url =>
+  axios
+    .get(url, {
+      baseURL: config.QONTRACT_BASE_URL
+    })
+    .then(res => res)
+    .catch(error => {
+        throw error;
+    });
 export const makeGetReq = url =>
   axios
     .get(url)

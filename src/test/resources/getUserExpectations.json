@@ -1,0 +1,23 @@
+{
+  "http-request": {
+    "method": "GET",
+    "path": "/api/users/"
+  },
+  "http-response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "id": 4000,
+        "email": "a@b.com",
+        "first_name": "first name",
+        "last_name": "last name",
+        "avatar": "yo"
+      },
+      "ad": {
+        "company": "eot",
+        "url": "url",
+        "text": "lorem Ipsum"
+      }
+    }
+  }
+}

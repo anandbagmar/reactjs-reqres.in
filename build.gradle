@@ -1,0 +1,100 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+
+buildscript {
+    ext {
+        gradleVersionProperty = '6.5'
+        masterThoughtVersion = '5.+'
+        testNGVersion = '6+'
+        seleniumVersion = '3+'
+        webdriverManagerVersion = '4.+'
+        jsonSimpleVersion = '1.+'
+        applitoolsVersion = '3.+'
+        restAssuredVersion = '3+'
+    }
+}
+
+group 'com.anandbagmar'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir file('src/main/java')
+        }
+        resources {
+            srcDirs ("resources")
+        }
+    }
+    test {
+        java {
+            srcDir file('src/test/java')
+        }
+        resources {
+            srcDir file('resources')
+        }
+    }
+}
+
+dependencies {
+    compile 'org.testng:testng:' + testNGVersion
+    compile 'org.seleniumhq.selenium:selenium-java:' + seleniumVersion
+    compile 'net.masterthought:cucumber-reporting:' + masterThoughtVersion
+    compile 'io.github.bonigarcia:webdrivermanager:' + webdriverManagerVersion
+    compile 'com.googlecode.json-simple:json-simple:' + jsonSimpleVersion
+    compile 'com.applitools:eyes-selenium-java3:' + applitoolsVersion
+    testCompile 'io.rest-assured:rest-assured:' + restAssuredVersion
+}
+
+project.ext.logDir = "${rootDir}/reports"
+
+test {
+    useTestNG() {
+        options {
+            parallel = 'methods'
+            threadCount = 2
+        }
+        reports.html.enabled = true
+        reports.html.setDestination(file("${project.logDir}/html"))
+
+        reports.junitXml.enabled = true
+        reports.junitXml.setDestination(file("${project.logDir}/junit"))
+        testLogging {
+            events "started", "passed", "skipped", "failed"
+            // show standard out and standard error of the test JVM(s) on the console
+            showStandardStreams = true
+            // show full exception trace
+            exceptionFormat = 'full'
+            showStackTraces = true
+            showCauses = true
+            showExceptions = true
+        }
+    }
+}
+
+clean.doFirst {
+    delete "${rootDir}/target"
+    delete "${rootDir}/bin"
+    delete "${rootDir}/build"
+    delete "${rootDir}/out"
+    delete "${rootDir}/reports"
+    println "Clean: Deleted bin, build, out, target and reports directories"
+}
+
+clean.doLast {
+    mkdir "${rootDir}/reports"
+    println "Created reports directory"
+}
+
+test.dependsOn clean
+
+wrapper {
+    gradleVersion = gradleVersionProperty
+}

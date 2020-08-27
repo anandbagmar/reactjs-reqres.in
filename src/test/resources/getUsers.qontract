@@ -1,0 +1,23 @@
+Feature: Get dynamically mocked user from Qontract
+
+  Scenario: Get users on page
+    Given json UserData
+      | id         | (number) |
+      | email      | (string) |
+      | first_name | (string) |
+      | last_name  | (string) |
+      | avatar     | (string) |
+    And json ADData
+      | company | (string) |
+      | url     | (url)    |
+      | text    | (string) |
+    And type ResponseBody
+      | page        | (number)        |
+      | per_page    | (number)        |
+      | total       | (number)        |
+      | total_pages | (number)        |
+      | data        | (UserData*) |
+      | ad          | (ADData)        |
+    When GET /api/users?delay=(number)&qontract=true&page=(number)
+    Then status 200
+    And response-body (ResponseBody)

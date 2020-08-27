@@ -23,5 +23,9 @@ npm start
   - styled-components
   - loadash
 
+# Functional Tests
+Functional Tests are implemented using Selenium-Java. Visual validation is done using Applitools
+To stub out external services, download Qontract from () and start it in stub mode
+
 
 
