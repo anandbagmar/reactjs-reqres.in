@@ -23,9 +23,39 @@ npm start
   - styled-components
   - loadash
 
-# Functional Tests
-Functional Tests are implemented using Selenium-Java. Visual validation is done using Applitools
-To stub out external services, download Qontract from () and start it in stub mode
+# End-2-End (Functional) Tests
+* End-2-End (E2E) Functional Tests are implemented using Selenium-Java. 
+* Visual validation is done using Applitools (https://applitools.com)
+* Intelligent stubbing is achieved using Qontract (https://qontract.run)
+
+For the purpose of the demo, the /api/users?delay=2&page=1 GET endpoint is stubbed using Qontract
+
+## Running the E2E tests
+To run the tests, follow the below steps:
+* Signup for a free Applitools account from https://auth.applitools.com/users/register
+* Save the Applitools API as an environment variable with name - APPLITOOLS_API_KEY
+    ```
+    > export APPLITOOLS_API_KEY=..... (on Linux / Mac)
+    ```
+    or
+    ```
+    > set APPLITOOLS_API_KEY=..... (on Windows)
+    ```
+* Download Qontract from (https://github.com/qontract/qontract/releases) to some directory 
+* Start Qontract in stub mode and give it the path to the Qontract spec
+
+    Example:
+    If Qontract jar is downloaded in directory ./temp
+    ``` 
+    java -jar ./temp/qontract.jar stub ./src/e2eTest/resources/getUsers.qontract
+    ```
+
+* Run the test
+```
+./gradlew clean test
+```
+
+* Check Applitools dashboard (https://eyes.applitools.com) for visual test results
 
 
 
