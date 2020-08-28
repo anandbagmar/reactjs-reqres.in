@@ -25,20 +25,12 @@ repositories {
 }
 
 sourceSets {
-    main {
-        java {
-            srcDir file('src/main/java')
-        }
-        resources {
-            srcDirs ("resources")
-        }
-    }
     test {
         java {
-            srcDir file('src/test/java')
+            srcDir file('src/e2eTest/java')
         }
         resources {
-            srcDir file('resources')
+            srcDir file('src/e2eTest/resources')
         }
     }
 }
@@ -56,6 +48,9 @@ dependencies {
 project.ext.logDir = "${rootDir}/reports"
 
 test {
+    doFirst {
+        environment "APPLITOOLS_DONT_CLOSE_BATCHES", "true"
+    }
     useTestNG() {
         options {
             parallel = 'methods'
