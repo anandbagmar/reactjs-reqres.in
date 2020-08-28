@@ -18,6 +18,6 @@ Feature: Get dynamically mocked user from Qontract
       | total_pages | (number)        |
       | data        | (UserData*) |
       | ad          | (ADData)        |
-    When GET /api/users?delay=(number)&qontract=true&page=(number)
+    When GET /api/users?delay=(number)&page=(number)
     Then status 200
     And response-body (ResponseBody)

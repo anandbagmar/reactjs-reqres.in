@@ -11,7 +11,7 @@ buildscript {
         seleniumVersion = '3+'
         webdriverManagerVersion = '4.+'
         jsonSimpleVersion = '1.+'
-        applitoolsVersion = '3.+'
+        applitoolsVersion = '3.174.+'
         restAssuredVersion = '3+'
     }
 }

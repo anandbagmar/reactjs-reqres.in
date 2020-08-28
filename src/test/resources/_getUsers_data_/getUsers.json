@@ -1,57 +1,61 @@
 {
   "http-request": {
     "method": "GET",
-    "path": "/api/users?delay=2&qontract=true&page=1"
+    "path": "/api/users",
+    "query": {
+      "delay": "2",
+      "page": "1"
+    }
   },
   "http-response": {
     "status": 200,
     "body": {
-      "page": 2,
+      "page": 1,
       "per_page": 6,
       "total": 12,
-      "total_pages": 2,
+      "total_pages": 1,
       "data": [
         {
-          "id": 7,
-          "email": "michael.lawson@eot.in",
-          "first_name": "Michael",
-          "last_name": "Lawson",
-          "avatar": "https://s33.amazonaws.co.in/uifaces/faces/twitter/follettkyle/128.jpg"
+          "id": 1,
+          "email": "who.cares@myemail.in",
+          "first_name": "A",
+          "last_name": "B",
+          "avatar": "https://commons.wikimedia.org/wiki/File:User_font_awesome.svg"
         },
         {
-          "id": 8,
+          "id": 2,
           "email": "lindsay.ferguson@eot.in",
           "first_name": "Lindsay",
           "last_name": "Ferguson",
-          "avatar": "https://s33.amazonaws.co.in/uifaces/faces/twitter/araa3185/128.jpg"
+          "avatar": "https://commons.wikimedia.org/wiki/File:User_font_awesome.svg"
         },
         {
-          "id": 9,
+          "id": 3,
           "email": "tobias.funke@eot.in",
           "first_name": "Tobias",
           "last_name": "Funke",
-          "avatar": "https://s33.amazonaws.co.in/uifaces/faces/twitter/vivekprvr/128.jpg"
+          "avatar": "https://commons.wikimedia.org/wiki/File:User_font_awesome.svg"
         },
         {
-          "id": 10,
+          "id": 4,
           "email": "byron.fields@eot.in",
           "first_name": "Byron",
           "last_name": "Fields",
-          "avatar": "https://s33.amazonaws.co.in/uifaces/faces/twitter/russoedu/128.jpg"
+          "avatar": "https://commons.wikimedia.org/wiki/File:User_font_awesome.svg"
         },
         {
-          "id": 11,
+          "id": 5,
           "email": "george.edwards@eot.in",
           "first_name": "George",
           "last_name": "Edwards",
-          "avatar": "https://s33.amazonaws.co.in/uifaces/faces/twitter/mrmoiree/128.jpg"
+          "avatar": "https://commons.wikimedia.org/wiki/File:User_font_awesome.svg"
         },
         {
-          "id": 12,
+          "id": 6,
           "email": "rachel.howell@eot.in",
           "first_name": "Rachel",
           "last_name": "Howell",
-          "avatar": "https://s33.amazonaws.co.in/uifaces/faces/twitter/hebertialmeida/128.jpg"
+          "avatar": "https://commons.wikimedia.org/wiki/File:User_font_awesome.svg"
         }
       ],
       "ad": {
