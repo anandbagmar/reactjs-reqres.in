@@ -56,6 +56,7 @@ To run the tests, follow the below steps:
 ```
 
 * Check Applitools dashboard (https://eyes.applitools.com) for visual test results
+* TestNG logs of executed tests are available in the reports directory
 
 
 
