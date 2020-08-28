@@ -25,7 +25,7 @@ import java.time.Duration;
 
 import static io.restassured.RestAssured.given;
 
-public class HelloWorldTest extends BaseTest {
+public class E2EWithEyesAndQontractTest extends BaseTest {
     private final String appName = "reactjs-reqres.in";
     private final String qontractServerUrl = "http://localhost:9000";
     private final String qontractServerExpectationEndpoint = "/_qontract/expectations";
@@ -79,7 +79,7 @@ public class HelloWorldTest extends BaseTest {
     }
 
     private JSONObject loadAndUpdateExpectationForUsers() {
-        JSONObject jsonObject = loadFromJSON("src/test/resources/_getUsers_data_/getUsers.json");
+        JSONObject jsonObject = loadFromJSON("src/e2eTest/resources/_getUsers_data_/getUsers.json");
         return jsonObject;
     }
 
