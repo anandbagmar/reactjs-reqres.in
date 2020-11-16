@@ -61,7 +61,7 @@
       "ad": {
         "company": "StatusCode Weekly",
         "url": "http://statuscode.org/",
-        "text": "A weekly newsletter focusing on software development, infrastructure, the server, performance, and the stack end of things."
+        "text": "A demonstration of an example to integrate Applitools Eyes and Qontract in your E2E tests to reduce flakiness in your test execution"
       }
     }
   }
