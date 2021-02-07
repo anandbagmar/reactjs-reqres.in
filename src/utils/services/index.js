@@ -7,6 +7,7 @@ axios.defaults.baseURL = config.API_BASE_URL;
 export const makeGetReqQontract = url =>
   axios
     .get(url, {
+      // Stubbed external endpoint
       baseURL: config.QONTRACT_BASE_URL
     })
     .then(res => res)
