@@ -42,11 +42,14 @@ public class E2EWithEyesAndQontractTest extends BaseTest {
         Eyes eyes = getEyes();
         WebDriver driver = getDriver();
 
+        // Set dynamic expectation on stubbed external endpoint
         setExpectationInQontract(loadAndUpdateExpectationForUsers());
 
         String url = "http://localhost:3000";
         driver.get(url);
         eyes.checkWindow("onLoad");
+
+        // Login
         driver.findElement(By.cssSelector("input[name='email']")).sendKeys("eve.holt@reqres.in");
         driver.findElement(By.cssSelector("input[name='password']")).sendKeys("cityslicka");
 //        ((JavascriptExecutor) driver).executeScript("document.querySelector(\".form-btn\").style.backgroundColor = \"blue\"");
@@ -59,6 +62,7 @@ public class E2EWithEyesAndQontractTest extends BaseTest {
         explicitlyWaitFor(driver, By.cssSelector("button.btn.logout"));
         eyes.checkWindow("after login");
 
+        // Edit Username
         driver.findElement(By.cssSelector("a.btn.edit")).click();
         eyes.checkWindow("edit user name");
         driver.findElement(By.cssSelector("input[name='first_name']")).clear();
@@ -69,6 +73,7 @@ public class E2EWithEyesAndQontractTest extends BaseTest {
         eyes.checkWindow("update user name");
         driver.findElement(By.cssSelector(".form-btn")).click();
 
+        // Verify updated list of users
         explicitlyWaitFor(driver, By.cssSelector("button.btn.logout"));
         eyes.checkWindow("updated list");
     }
