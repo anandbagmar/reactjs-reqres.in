@@ -8,7 +8,7 @@ function* getData(action) {
     const { query } = action.payload;
     try {
         yield put(actions.loading( true));
-        const response = yield call(service.makeGetReqQontract,`/users?delay=2${query}`);
+        const response = yield call(service.makeGetReqSpecmatic,`/users?delay=2${query}`);
 //        const response = yield call(service.makeGetReq,`/users?delay=2${query}`);
         const state = store.getState();
         const getWholeItems = state.usersList.data;

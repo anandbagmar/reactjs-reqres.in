@@ -1,4 +1,4 @@
-Feature: Get dynamically mocked user from Qontract
+Feature: Get dynamically mocked user from Specmatic
 
   Scenario: Get valid user details
     Given json UserData

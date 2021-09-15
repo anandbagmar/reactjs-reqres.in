@@ -25,12 +25,12 @@ import java.time.Duration;
 
 import static io.restassured.RestAssured.given;
 
-public class E2EWithEyesAndQontractTest extends BaseTest {
-    private final String appName = "reactjs-reqres.in";
-    private final String qontractServerUrl = "http://localhost:9000";
+public class E2EWithEyesAndSpecmaticTest extends BaseTest {
+    private final String appName = "reactjs-reqres.in AppiumConf";
+    private final String specmatictServerUrl = "http://localhost:9000";
     private final String qontractServerExpectationEndpoint = "/_qontract/expectations";
 
-    RectangleSize viewportSize = new RectangleSize(1024, 768);
+    RectangleSize viewportSize = new RectangleSize(1280, 1024);
 
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod(Method method) {
@@ -43,7 +43,7 @@ public class E2EWithEyesAndQontractTest extends BaseTest {
         WebDriver driver = getDriver();
 
         // Set dynamic expectation on stubbed external endpoint
-        setExpectationInQontract(loadAndUpdateExpectationForUsers());
+        setExpectationInSpecmatic(loadAndUpdateExpectationForUsers());
 
         String url = "http://localhost:3000";
         driver.get(url);
@@ -117,9 +117,9 @@ public class E2EWithEyesAndQontractTest extends BaseTest {
         return loadedExpectation;
     }
 
-    private void setExpectationInQontract(JSONObject jsonBody) {
+    private void setExpectationInSpecmatic(JSONObject jsonBody) {
         RequestSpecification requestSpec = new RequestSpecBuilder()
-                                                   .setBaseUri(qontractServerUrl)
+                                                   .setBaseUri(specmatictServerUrl)
                                                    .setContentType(ContentType.JSON)
                                                    .log(LogDetail.ALL)
                                                    .build();
