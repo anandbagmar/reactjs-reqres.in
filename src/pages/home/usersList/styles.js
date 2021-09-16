@@ -9,15 +9,15 @@ export const Row = styled.div`
   &>div{
     display: inline-block;
     color: brown;
-    // intentional change introduced
+    // todo - intentional change introduced
     // color: red;
   }
   button,a{
     position:  absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: lightblue;
-    // intentional change introduced
+    background-color: pink;
+    // todo - intentional change introduced
     // background-color: cyan;
     &.delete{
       right: 0px;
@@ -32,11 +32,11 @@ export const Avatar = styled.div`
   height: 60px;
   border-radius: 50%;
   background: #d4e2b1;
-  // intentional change introduced
+  // todo - intentional change introduced
   // background: #b1d0e2;
   float: left;
   img{
-    // intentional change introduced
+    // todo - intentional change introduced
     width: 65px;
     height: 65px;
     border-radius: 50%;
@@ -45,7 +45,7 @@ export const Avatar = styled.div`
 export const UserInfo = styled.div`
   width:calc(100% - 60px) ;
   height: 60px;
-  // intentional change introduced
+  // todo - intentional change introduced
   // padding: 0 40px;
   float: left;
   &>div{

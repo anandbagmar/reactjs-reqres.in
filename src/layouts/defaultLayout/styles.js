@@ -6,7 +6,7 @@ export const Container = styled.div`
   max-width: 680px;
   margin: 0 auto;
   position: relative;
-// intentional change introduced
+// todo - intentional change introduced
 // padding:3.5rem 1rem ;
   padding:3.5rem 2rem ;
 `;
