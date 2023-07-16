@@ -7,7 +7,9 @@ axios.defaults.baseURL = config.API_BASE_URL;
 export const makeGetReqSpecmatic = url =>
   axios
     .get(url, {
-      baseURL: config.SPECMATIC_BASE_URL
+      baseURL: config.API_BASE_URL
+//      baseURL: config.API_URL_2
+//      baseURL: config.SPECMATIC_BASE_URL
     })
     .then(res => res)
     .catch(error => {

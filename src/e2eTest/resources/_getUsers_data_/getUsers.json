@@ -18,8 +18,8 @@
         {
           "id": 1,
           "email": "who.cares@myemail.in",
-          "first_name": "A",
-          "last_name": "B",
+          "first_name": "specmatic-fname",
+          "last_name": "specmatic-lname",
           "avatar": "https://commons.wikimedia.org/wiki/File:User_font_awesome.svg"
         },
         {
@@ -59,7 +59,7 @@
         }
       ],
       "ad": {
-        "company": "StatusCode Weekly",
+        "company": "Statuscode Weekly",
         "url": "http://statuscode.org/",
         "text": "A demonstration of an example to integrate Applitools Eyes and Qontract in your E2E tests to reduce flakiness in your test execution"
       }
