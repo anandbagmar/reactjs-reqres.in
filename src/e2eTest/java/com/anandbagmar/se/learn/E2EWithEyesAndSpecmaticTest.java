@@ -1,7 +1,6 @@
 package com.anandbagmar.se.learn;
 
 import com.applitools.eyes.RectangleSize;
-import com.applitools.eyes.selenium.Eyes;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
@@ -15,12 +14,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.time.Duration;
 
 import static io.restassured.RestAssured.given;
@@ -32,16 +29,8 @@ public class E2EWithEyesAndSpecmaticTest extends BaseTest {
 
     RectangleSize viewportSize = new RectangleSize(1280, 1024);
 
-    @BeforeMethod(alwaysRun = true)
-    public void beforeMethod(Method method) {
-        setupBeforeMethod(appName, method, viewportSize, true, true);
-    }
-
     @Test(description = "Login and update user name")
     public void loginAndUpdateUserName() {
-        Eyes eyes = getEyes();
-        WebDriver driver = getDriver();
-
         // Set dynamic expectation on stubbed external endpoint
         setExpectationInSpecmatic(loadAndUpdateExpectationForUsers());
 
@@ -79,29 +68,13 @@ public class E2EWithEyesAndSpecmaticTest extends BaseTest {
     }
 
     private void explicitlyWaitFor(WebDriver driver, By locator) {
-        long duration = Duration.ofSeconds(15).getSeconds();
-        new WebDriverWait(driver, duration).until(ExpectedConditions.elementToBeClickable(locator));
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(locator));
     }
 
     private JSONObject loadAndUpdateExpectationForUsers() {
         JSONObject jsonObject = loadFromJSON("src/e2eTest/resources/_getUsers_data_/getUsers.json");
         return jsonObject;
     }
-
-//    private JSONObject loadAndUpdateExpectationForUserId(int userId) {
-//        JSONObject jsonObject = loadFromJSON("src/test/resources/getUserExpectations.json");
-//        JSONObject httpRequest = (JSONObject) jsonObject.get("http-request");
-//        String path = (String) httpRequest.get("path") + userId;
-//        httpRequest.put("path", path);
-//
-//        JSONObject httpResponse = (JSONObject) jsonObject.get("http-response");
-//        JSONObject responseBody = (JSONObject) httpResponse.get("body");
-//        JSONObject responseBodyData = (JSONObject) responseBody.get("data");
-//        responseBodyData.put("id", userId);
-//
-//        System.out.println("Updated expectations: " + jsonObject);
-//        return jsonObject;
-//    }
 
     private JSONObject loadFromJSON(String fileName) {
         JSONParser jsonParser = new JSONParser();
