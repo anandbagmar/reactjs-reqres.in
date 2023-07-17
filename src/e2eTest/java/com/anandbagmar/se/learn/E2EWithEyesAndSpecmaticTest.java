@@ -41,10 +41,6 @@ public class E2EWithEyesAndSpecmaticTest extends BaseTest {
         // Login
         driver.findElement(By.cssSelector("input[name='email']")).sendKeys("eve.holt@reqres.in");
         driver.findElement(By.cssSelector("input[name='password']")).sendKeys("cityslicka");
-//        ((JavascriptExecutor) driver).executeScript("document.querySelector(\".form-btn\").style.backgroundColor = \"blue\"");
-//        ((JavascriptExecutor) driver).executeScript("document.querySelector(\"input[name='email']\").style.borderColor = \"blue\"");
-//        ((JavascriptExecutor) driver).executeScript("document.querySelector(\"label[for='email']\").style.backgroundColor=\"grey\"");
-//        ((JavascriptExecutor) driver).executeScript("document.querySelector(\"label[for='email']\").style.color=\"#431\"");
         eyes.checkWindow("enteredCredentials");
 
         driver.findElement(By.cssSelector(".form-btn")).click();
