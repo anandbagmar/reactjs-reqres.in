@@ -116,6 +116,39 @@ const GlobalStyle = createGlobalStyle`
             opacity: .65;
         }
     }
+    .form-button {
+        display: block;
+        width: 100%;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        border: 1px solid #009688;
+        padding: .5rem .75rem;
+        font-size: 1.35rem;
+        line-height: 1.5;
+        border-radius: .25rem;
+        color: #fff;
+        background-color: #009688;
+        transition: color .5s ease-in-out,background-color .5s ease-in-out,border-color .5s ease-in-out;
+        &:not(:disabled):not(.disabled) {
+            cursor: pointer;
+        }
+        &:not(:disabled):not(.disabled):hover{
+          background-color:#00796B;
+          border-color:#00796B ;
+        }
+        &:focus{
+          outline: none;
+        }
+        &.disabled, &:disabled {
+            opacity: .65;
+        }
+    }
     .btn {
         display: inline-block;
         font-weight: 400;
