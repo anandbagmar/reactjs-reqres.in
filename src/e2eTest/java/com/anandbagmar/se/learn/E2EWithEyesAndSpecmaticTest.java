@@ -12,6 +12,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -48,7 +49,8 @@ public class E2EWithEyesAndSpecmaticTest extends BaseTest {
         eyes.checkWindow("after login");
 
         // Edit Username
-        driver.findElement(By.cssSelector("a.btn.edit")).click();
+        explicitlyWaitFor(driver, By.cssSelector("a.btn.edit")).click();
+//        driver.findElement(By.cssSelector("a.btn.edit")).click();
         eyes.checkWindow("edit user name");
         driver.findElement(By.cssSelector("input[name='first_name']")).clear();
         driver.findElement(By.cssSelector("input[name='last_name']")).clear();
@@ -63,8 +65,8 @@ public class E2EWithEyesAndSpecmaticTest extends BaseTest {
         eyes.checkWindow("updated list");
     }
 
-    private void explicitlyWaitFor(WebDriver driver, By locator) {
-        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(locator));
+    private WebElement explicitlyWaitFor(WebDriver driver, By locator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.elementToBeClickable(locator));
     }
 
     private JSONObject loadAndUpdateExpectationForUsers() {

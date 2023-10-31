@@ -5,7 +5,6 @@ import com.applitools.eyes.selenium.*;
 import com.applitools.eyes.visualgrid.model.DeviceName;
 import com.applitools.eyes.visualgrid.model.ScreenOrientation;
 import com.applitools.eyes.visualgrid.services.VisualGridRunner;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -117,7 +116,6 @@ public abstract class BaseTest {
                 break;
             case "firefox":
                 System.out.println("Creating local FirefoxDriver");
-                WebDriverManager.firefoxdriver().setup();
                 innerDriver = new FirefoxDriver();
                 break;
             case "self_healing":
@@ -133,8 +131,9 @@ public abstract class BaseTest {
 
     private static WebDriver createChromeDriver() {
         WebDriver innerDriver;
-        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
+        options.setCapability("applitools:tunnel", true);
+//        options.addArguments("applitools:tunnel=true");
         options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         options.addArguments("--remote-allow-origins=*");
 //                options.addArguments("headless");
