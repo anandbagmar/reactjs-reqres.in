@@ -88,8 +88,6 @@ export class Edit extends Component {
                   </div>
                   <div className="form-group">
                       <button className="form-btn" disabled={loading}>
-// TODO - swap the className to change locator
-//                      <button className="form-button" disabled={loading}>
                           {loading ? <><i className="fas fa-spinner  fa-spin"/> loading ...</> : "Save"}
                       </button>
                   </div>
