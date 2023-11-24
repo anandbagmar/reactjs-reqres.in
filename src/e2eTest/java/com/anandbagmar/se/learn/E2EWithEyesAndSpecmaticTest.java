@@ -26,7 +26,7 @@ import static io.restassured.RestAssured.given;
 public class E2EWithEyesAndSpecmaticTest extends BaseTest {
     private final String appName = "reactjs-reqres.in AppiumConf";
     private final String specmatictServerUrl = "http://localhost:9000";
-    private final String qontractServerExpectationEndpoint = "/_qontract/expectations";
+    private final String specmaticServerExpectationEndpoint = "/_qontract/expectations";
 
     RectangleSize viewportSize = new RectangleSize(1280, 1024);
 
@@ -105,7 +105,7 @@ public class E2EWithEyesAndSpecmaticTest extends BaseTest {
                 .log().all()
                 .when()
                 .body(jsonBody)
-                .post(qontractServerExpectationEndpoint)
+                .post(specmaticServerExpectationEndpoint)
                 .then()
                 .spec(responseSpec)
                 .log().all(true);
